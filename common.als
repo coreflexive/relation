@@ -1,4 +1,10 @@
-open combinators
+fun ker(r: univ->univ) : univ->univ {
+  r.~r
+}
+
+fun img(r: univ->univ) : univ->univ {
+  ~r.r
+}
 
 pred entire(src,tgt: set univ, r: src->tgt) {
   iden:>src in ker[r]
@@ -47,4 +53,13 @@ pred surjection(src,tgt: set univ, r: src->tgt) {
 pred bijection(src,tgt: set univ, r: src->tgt) {
   injection[src,tgt,r]
   surjection[src,tgt,r]
+}
+
+
+pred separated(a,b,c: set univ, r: a->c, s: b->c) {
+  no r.~s
+}
+
+pred coseparated(a,b,c: set univ, r: a->c, s: b->c) {
+  no ~r.s
 }

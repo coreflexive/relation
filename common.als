@@ -1,10 +1,10 @@
-fun ker(r: univ->univ) : univ->univ {
-  r.~r
-}
+fun ker(r: univ->univ) : univ->univ { r.~r }
 
-fun img(r: univ->univ) : univ->univ {
-  ~r.r
-}
+fun img(r: univ->univ) : univ->univ { ~r.r }
+
+fun dom(r: univ->univ) : univ->univ { iden & ker[r] }
+
+fun rng(r: univ->univ) : univ->univ { iden & img[r] }
 
 pred entire(src,tgt: set univ, r: src->tgt) {
   iden:>src in ker[r]
